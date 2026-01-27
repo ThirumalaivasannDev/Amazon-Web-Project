@@ -33,6 +33,7 @@ body
 {
   width:100px;
 }
+
 .amazon-mobile-logo
 {
   display:none;
@@ -243,4 +244,8 @@ body
   border-radius:15px;
   background:rgb(255, 216, 20);
   border:0;
+}
+.order-button:hover
+{
+  background: rgb(236, 205, 45);
 }

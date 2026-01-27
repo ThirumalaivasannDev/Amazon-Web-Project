@@ -6,6 +6,7 @@ body
   padding-top:100px;
 }
 /*Header Main Section*/
+
 .header-main
 {
   display:flex;
@@ -25,9 +26,15 @@ body
   padding-top:10px;
   
 }
+.amazon-logo:hover
+{
+  border:1px solid white;
+  
+}
 .amazon-logo
 {
   width:100px;
+  padding:5px;
 }
 .amazon-mobile-logo
 {
@@ -84,12 +91,33 @@ body
   justify-content:space-evenly;
   margin-right:20px;
 }
+.return-order-section:hover
+{
+  border:1px solid white;
+  padding:4px;
+}
+.order-link
+{
+  color:white;
+  text-decoration:none;
+}
 /* Right Cart Section */
 .cart-section
 {
   display:flex;
   align-items:center;
   position:relative;
+}
+.cart-section:hover
+{
+ 
+  border:1px solid white;
+  padding-right:35px;
+}
+.cart-relative
+{
+  color:white;
+  
 }
 .cart-image
 {
@@ -129,6 +157,12 @@ body
 .amazon-mobile-logo
 {
   display:inline;
+  
+}
+.amazon-mobile-logo:hover
+{
+  border:1px solid white;
+  padding:4px;
 }
 .left-section
 {
@@ -201,6 +235,10 @@ body
   border-radius:14px;
   background: orange;
 
+}
+.add-to-cart-button:hover
+{
+  background: rgb(239, 188, 93);
 }
 /*Media query for Products*/
 @media (max-width:2000px)

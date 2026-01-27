@@ -1,0 +1,212 @@
+/* General */
+body
+{
+  margin:0;
+  height:3000px;
+  padding-top:100px;
+}
+/*Header Main Section*/
+.header-main
+{
+  display:flex;
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  background:rgb(19, 25, 33);
+  align-items:center;
+  color:white;
+  height:60px;
+}
+/*Header Left Section*/
+.left-section
+{
+  width:180px;
+  margin-left:20px;
+  padding-top:10px;
+  
+}
+.amazon-logo
+{
+  width:100px;
+}
+.amazon-mobile-logo
+{
+  display:none;
+
+  width:35px;
+}
+/*Header Middle Section*/
+.middle-section
+{
+  flex-grow:1;
+  display:flex;
+  align-items:center;
+  display:flex;
+  justify-content: center;
+}
+.input-search
+{
+  font-size: 15px;
+  width:90%;
+  height:40px;
+  border:0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left:20px;
+  padding-top:0px;
+  padding-bottom:0px;
+  max-width:800px;
+}
+.input-search:focus
+{
+  outline:3px orange solid;
+}
+.search-button
+{
+  width:45px;
+  height:40px;
+  border:0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: orange;
+}
+.search-icon-image
+{
+  width:22px;
+  height:22px;
+}
+/*Header Right Section*/
+.right-section 
+{
+  display:flex;
+  align-items:center;
+  width:180px;
+  justify-content:space-evenly;
+  margin-right:20px;
+}
+/* Right Cart Section */
+.cart-section
+{
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+.cart-image
+{
+  width:50px;
+}
+.cart-relative
+{
+  position:relative;
+}
+.cart-quantity
+{
+  position:absolute;
+  bottom:20px;
+  left:25px;
+  color:orange;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:600;
+}
+.cart-text
+{
+  position:absolute;
+  left:50px;
+  top:15px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:600;
+}
+
+
+
+/*Media query*/
+@media (max-width:600px)
+{
+.amazon-logo
+{
+  display:none;
+}
+.amazon-mobile-logo
+{
+  display:inline;
+}
+.left-section
+{
+  width:50px;
+}
+}
+
+
+/* Main Section */
+.main 
+{
+  max-width:850px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:25px;
+  padding-right:25px;
+}
+
+/*Order Tracking Section */
+
+.view-all-orders
+{
+  color:rgb(1, 124, 182);
+  font-family:Roboto;
+  padding-bottom:25px;
+}
+.arriving-date
+{
+  font-family:Roboto;
+  font-weight:700;
+  font-size:25px;
+  padding-bottom:15px;
+}
+.product-name
+{
+  padding-bottom:3px;
+}
+.product-name,.product-quantity
+{
+  font-family:Roboto;
+  color:rgb(33, 33, 33);
+}
+.product-quantity
+{
+  padding-bottom:30px;
+}
+.product-image
+{
+  padding-bottom:50px;
+}
+.image 
+{
+  max-height:150px;
+  max-width:150px;
+}
+.shipping-status
+{
+  display:flex;
+  justify-content: space-between;
+  font-size:20px;
+  font-weight:500;
+  font-family:Roboto;
+  padding-bottom:20px;
+}
+.status-bar-container
+{
+  height:25px;
+  width:100%;
+  border:1px solid rgb(200, 200, 200);
+  border-radius:13px;
+  
+}
+.status-bar
+{
+  background:green;
+  width:50%;
+  height:100%;
+  border-radius:13px;
+}
+
