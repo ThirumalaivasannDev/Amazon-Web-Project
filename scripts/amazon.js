@@ -35,6 +35,8 @@ document.querySelectorAll('.js-add-cart-button').forEach((button)=>
   
   {
       //Camel Case
+
+      //Add items or increasing cart quantity
     const id=button.dataset.productId;
     let match;
     cart.forEach((item)=>
@@ -57,14 +59,25 @@ document.querySelectorAll('.js-add-cart-button').forEach((button)=>
       cart.push({quantity:1,productId:id});
     }
     
-    console.log(cart);
+    
+
+
+    //Updating Cart Quantity
+
+    let totalQuantity=0;
+    cart.forEach((item)=>
+    {
+      totalQuantity+=item.quantity;
+    });
+    document.querySelector('.cart-quantity').innerHTML=totalQuantity;
+    
     
   }
 )
 }
 );
 
-console.log(cart);
+
     
 
  
