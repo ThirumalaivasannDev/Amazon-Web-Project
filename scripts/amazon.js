@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';   /*Import cart,product then only we can able to use this variables inside our file */
+import {cart,addItemOrIncreaseQuantity,updateQuantity} from '../data/cart.js';   /*Import cart,product then only we can able to use this variables inside our file */
 import {products as product} from '../data/products.js';
 
 let productHTML='';
@@ -36,51 +36,15 @@ document.querySelectorAll('.js-add-cart-button').forEach((button)=>
   button.addEventListener('click',()=>
   
   {
-      //Camel Case
-
-      //Add items or increasing cart quantity
-    const id=button.dataset.productId;
-    let match;
-    cart.forEach((item)=>
-    {
       
-      if(item.productId===id)
-      {
-        match=item;
-      }
-      
-    }
-    );
+    addItemOrIncreaseQuantity(button);
+    updateQuantity();
 
-    if(match)
-    {
-      match.quantity+=1;
-    }
-    else
-    {
-      cart.push({quantity:1,productId:id});
-    }
-    
-    
-
-
-    //Updating Cart Quantity
-
-    let totalQuantity=0;
-    cart.forEach((item)=>
-    {
-      totalQuantity+=item.quantity;
-    });
-    document.querySelector('.cart-quantity').innerHTML=totalQuantity;
-    
-    
   }
 )
 }
 );
 
-
-    
 
  
 
