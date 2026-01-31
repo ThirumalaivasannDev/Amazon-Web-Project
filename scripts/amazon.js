@@ -1,7 +1,9 @@
+import {cart} from '../data/cart.js';   /*Import cart,product then only we can able to use this variables inside our file */
+import {products as product} from '../data/products.js';
 
 let productHTML='';
 
-products.forEach( (product)=>
+product.forEach( (product)=>
 {
   productHTML = productHTML+ ` <div class="product">
         <div class="product-image"> <img class="image"src="${product.image}"></div>
