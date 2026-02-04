@@ -186,7 +186,7 @@ body
   flex-direction:column;
   row-gap:15px;
 }
-.free-shipping,.midlevel-shipping,.highlevel-shipping
+.delivery-shippin-option
 {
   display:flex;
 }
@@ -196,13 +196,13 @@ body
   font-weight:700;
   font-family: Roboto;
 }
-.free-shipping-date,.midlevel-shipping-date,.highlevel-shipping-date
+.shipping-date
 {
   font-family:Roboto;
   color:rgb(0, 118, 0);
   font-weight:500;
 }
-.highlevel-shipping-charge,.midlevel-shipping-charge,.shipping-charge
+.shipping-charge
 {
   color: rgb(120, 120, 120);
   font-size: 15px;

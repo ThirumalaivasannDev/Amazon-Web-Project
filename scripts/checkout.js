@@ -1,13 +1,13 @@
 import { products } from "../data/products.js";
 import { cart, remove } from "../data/cart.js";
-import {priceFormatting} from '../scripts/utils/money.js';
+import { priceFormatting } from '../scripts/utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import deliveryOptions from "./deliveryOptions.js";
 
 
 
-  let productString = '';
-  cart.forEach((cartItem) => {
+let productString = '';
+cart.forEach((cartItem) => {
 
   let id = cartItem.productId;
   let matchedProduct = '';
@@ -46,39 +46,9 @@ import deliveryOptions from "./deliveryOptions.js";
                 <div class="choosing-delivery-options">
                   Choose a delivery option:
                 </div>
-                <div class="free-shipping">
-                  <div class="free-shipping-button">
-                    <input
-                      type="radio"
-                      class="free-shipping-radio-button"
-                      name="free-shipping-${matchedProduct.productId}"
-                    />
-                  </div>
-                  <div class="free-shipping-details">
-                    <div class="free-shipping-date"></div>
-                    <div class="shipping-charge">FREE Shipping</div>
-                  </div>
-                </div>
-                <div class="midlevel-shipping">
-                  <div class="midlevel-shipping-button">
-                    <input type="radio" name="free-shipping-${matchedProduct.productId}" />
-                  </div>
-                  <div class="midlevel-shipping-details">
-                    <div class="midlevel-shipping-date"></div>
-                    <div class="midlevel-shipping-charge">$4.99 - Shipping</div>
-                  </div>
-                </div>
-                <div class="highlevel-shipping">
-                  <div class="highlevel-shipping-button">
-                    <input type="radio" name="free-shipping-${matchedProduct.productId}" />
-                  </div>
-                  <div class="highlevel-shipping-details">
-                    <div class="highlevel-shipping-date"></div>
-                    <div class="highlevel-shipping-charge">
-                      $4.99 - Shipping
-                    </div>
-                  </div>
-                </div>
+                
+                ${deliveryOptionsHTML()}
+                
               </div>
             </div>
           </div>`;
@@ -94,20 +64,46 @@ document.querySelector('.product-container').innerHTML = productString;
 
 //Adding EventLister to all of the Delete Buttons in the Cart Page.
 
-let list=document.querySelectorAll('.delete-button');
-list.forEach((button)=>
-{
-  button.addEventListener('click',()=>
-  {
-    
-     let id=button.dataset.productId;
+let list = document.querySelectorAll('.delete-button');
+list.forEach((button) => {
+  button.addEventListener('click', () => {
+
+    let id = button.dataset.productId;
     remove(id);
 
     /*Deleting div(product) using the unique class name(Product id as an class name)*/
-    document.querySelector(`.productID-${id}`).remove();  
-     
+    document.querySelector(`.productID-${id}`).remove();
+
   });
 });
 
 
-  
+
+//Function to add Delivery Options
+
+function deliveryOptionsHTML() {
+  let HTML='';
+  deliveryOptions.forEach((deliveryOption) => {
+    let today = dayjs();
+    let deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+    let dateString = deliveryDate.format('dddd, MMMM D');
+    let price= deliveryOption.price!==0? `$${priceFormatting(deliveryOption.price)}-`:'FREE';
+
+   HTML+=    `<div class="delivery-shippin-option">
+                  <div class="free-shipping-button">
+                    <input
+                      type="radio"
+                      class="free-shipping-radio-button"
+                      name="free-shipping-"
+                    />
+                  </div>
+                  <div class="free-shipping-details">
+                    <div class="shipping-date">${dateString}</div>
+                    <div class="shipping-charge">${price} Shipping</div>
+                  </div>
+                </div>`;
+                
+  });
+  return HTML;
+}
+
