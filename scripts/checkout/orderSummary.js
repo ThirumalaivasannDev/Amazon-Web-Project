@@ -81,6 +81,10 @@ list.forEach((button) => {
     /*Deleting div(product) using the unique class name(Product id as an class name)*/
     document.querySelector(`.productID-${id}`).remove();
 
+    //MVC-Updating the HTML page
+    renderOrderSummary();
+    renderPaymentSummary();
+
   });
 });
 
