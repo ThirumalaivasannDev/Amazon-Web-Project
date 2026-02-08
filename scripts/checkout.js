@@ -5,6 +5,10 @@ import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import deliveryOptions from "./deliveryOptions.js";
 
 
+function renderOrderSummary()
+{
+
+
 
 let productString = '';
 cart.forEach((cartItem) => {
@@ -104,6 +108,7 @@ document.querySelectorAll('.js-delivery-option').forEach((options)=>
     
     let {productId,deliveryId}=options.dataset;
     updateDeliveryOptionID(productId,deliveryId);
+    renderOrderSummary();
   });
 });
 
@@ -143,3 +148,6 @@ function deliveryOptionsHTML(matchedProductId,cartItemDeliveryOptionID) {
   return HTML;
 }
 
+}
+
+renderOrderSummary();
