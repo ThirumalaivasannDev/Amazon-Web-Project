@@ -37,8 +37,8 @@ document.querySelectorAll('.js-add-cart-button').forEach((button)=>
   button.addEventListener('click',()=>
   
   {
-      
-    addItemOrIncreaseQuantity(button);
+    const id=button.dataset.productId;
+    addItemOrIncreaseQuantity(id);
     updateQuantity();
 
   }

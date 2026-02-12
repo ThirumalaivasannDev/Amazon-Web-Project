@@ -1,4 +1,4 @@
-import {priceFormatting} from "../scripts/utils/money.js";
+import {priceFormatting} from "../../scripts/utils/money.js";
 
 describe("Test suite:PriceFormatting!!!",()=>
 {
