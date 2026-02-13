@@ -87,5 +87,5 @@ const bussinessCart=cartGenerator('cart-bussiness');
 cart.localStorage();
 bussinessCart.localStorage();
 
-console.log(cart);
-console.log(bussinessCart);
+//console.log(cart);
+//console.log(bussinessCart);
