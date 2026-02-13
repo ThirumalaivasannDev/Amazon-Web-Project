@@ -47,9 +47,61 @@ class Product
   {
     return priceFormatting(this.priceCents);
   }
+  extractHTML()
+  {
+    return '';
+  }
 }
+
+class Clothing extends Product
+{
+  
+  sizeChartLink;
+  
+  constructor(prodcutDetails)
+  {
+   super(prodcutDetails);
+    this.sizeChartLink=prodcutDetails.sizeChartLink;
+  }
+
+
+  //Method Overriding
+  extractHTML()
+  {
+    //super.extractHTML();--->Calling Parent Method
+    return `
+      <a href="${this.sizeChartLink}" target="_blank">Size Chart</a>
+    `
+  }
+}
+
+const tshirt = new Clothing({
+    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+    image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+    name: "Adults Plain Cotton T-Shirt - 2 Pack",
+    rating: {
+      stars: 4.5,
+      count: 56
+    },
+    priceCents: 799,
+    keywords: [
+      "tshirts",
+      "apparel",
+      "mens"
+    ],
+    type: "clothing",
+    sizeChartLink: "images/clothing-size-chart.png"
+  }
+
+);
+
+  console.log(tshirt);
+  console.log(tshirt.getStarURL());
+
+
+
 const product=new Product({
-  id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
     rating: {
@@ -57,9 +109,16 @@ const product=new Product({
       count: 87
     },
     priceCents: 1090,
-  
-});
-console.log(product);
+    keywords: [
+      "socks",
+      "sports",
+      "apparel"
+    ]
+  });
+
+
+
+
 export const products = [  //Exporting products varaible then outside file can able to access 
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -721,9 +780,16 @@ export const products = [  //Exporting products varaible then outside file can a
   }
 ].map((product)=>
 {
-  return new Product(product);
+  if(product.type==='clothing')
+  {
+    return new Clothing(product);
+  }
+  else
+  {
+    return new Product(product);
+  }
+  
 });
 
 
 
-console.log(products);

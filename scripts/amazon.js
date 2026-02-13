@@ -23,6 +23,7 @@ product.forEach( (product)=>
         <option value="">9</option>
         <option value="">10</option>
       </select></div>
+      ${product.extractHTML()}
       <div class="add-to-cart "> <button class="add-to-cart-button js-add-cart-button" data-product-id= 
       '${product.id}' data-product-name= '${product.name}' >Add to Cart</button></div> 
     </div>` ;
