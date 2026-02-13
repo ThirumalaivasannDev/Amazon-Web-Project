@@ -1,3 +1,4 @@
+import { priceFormatting } from "../scripts/utils/money.js";
 //Function for finding the matched product
 
 export function getProduct(productID)
@@ -15,6 +16,50 @@ export function getProduct(productID)
 }
 
 
+class Product
+{
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+  keywords;
+
+
+
+  constructor(prodcutDetails)
+  {
+    this.id=prodcutDetails.id;
+    this.image=prodcutDetails.image;
+    this.name=prodcutDetails.name;
+    this.rating=prodcutDetails.rating;
+    this.priceCents=prodcutDetails.priceCents;
+    this.keywords=prodcutDetails.keywords;
+  }
+
+
+  getStarURL()
+  {
+    return `images/ratings/rating-${this.rating.stars*10}.png`;
+  }
+
+  getPrice()
+  {
+    return priceFormatting(this.priceCents);
+  }
+}
+const product=new Product({
+  id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+    image: "images/products/athletic-cotton-socks-6-pairs.jpg",
+    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
+    rating: {
+      stars: 4.5,
+      count: 87
+    },
+    priceCents: 1090,
+  
+});
+console.log(product);
 export const products = [  //Exporting products varaible then outside file can able to access 
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -674,4 +719,11 @@ export const products = [  //Exporting products varaible then outside file can a
       "mens"
     ]
   }
-];
+].map((product)=>
+{
+  return new Product(product);
+});
+
+
+
+console.log(products);

@@ -20,7 +20,6 @@ export function renderPaymentSummary()
     
    
   });
-  console.log(productPriceCents+"-----"+deliveryPriceCents);
   const totalPriceBeforeTax=productPriceCents+deliveryPriceCents;
   const tax=totalPriceBeforeTax*0.1;
 

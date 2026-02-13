@@ -9,8 +9,8 @@ product.forEach( (product)=>
   productHTML = productHTML+ ` <div class="product">
         <div class="product-image"> <img class="image"src="${product.image}"></div>
       <div class="product-description"><p>${product.name}</p></div>
-      <div class="product-rating"> <img class="rating-image" src="images/ratings/rating-${product.rating.stars*10}.png"> <span >${product.rating.count}</span></div>
-      <div class="product-price"> <p>$${priceFormatting(product.priceCents)}</p></div>
+      <div class="product-rating"> <img class="rating-image" src="${product.getStarURL()}"> <span >${product.rating.count}</span></div>
+      <div class="product-price"> <p>$${product.getPrice()}</p></div>
       <div class="product-quantity"> <select >
         <option value="">1</option>
         <option value="">2</option>

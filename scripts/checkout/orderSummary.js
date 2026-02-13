@@ -42,7 +42,7 @@ cart.forEach((cartItem) => {
                 <div class="product-name">
                   ${matchedProduct.name}
                 </div>
-                <div class="product-price"><p>$${priceFormatting(matchedProduct.priceCents)}</p></div>
+                <div class="product-price"><p>$${matchedProduct.getPrice()}</p></div>
                 <div class="product-quantity">
                   Quantity: ${cartItem.quantity}
                   <a data-product-id='${matchedProduct.id}' class="update-button">Update</a>
