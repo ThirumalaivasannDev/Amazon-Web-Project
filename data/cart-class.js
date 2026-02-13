@@ -2,19 +2,19 @@
 
  class Cart{
   cartItems;  //Attribute 1
-  localStorageKey;  //Attribute 2
+  #localStorageKey;  //Attribute 2 ---> Private property in javascript
 
 
   constructor(localStorageKey)
   {
-    this.localStorageKey=localStorageKey;
-    this.localStorage();
+    this.#localStorageKey=localStorageKey;
+    this.#localStorage();
   }
 
   //Method 1
-  localStorage() {
+  #localStorage() {  //---> Private Method
     //Using this to access current object attributes and methods...
-    this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey)) ||
+    this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey)) ||
       [
         {
           quantity: 1,
@@ -38,7 +38,7 @@
 
   //Method 2
   saveToLocalStorage() {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+    localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
   }
 
   //Method 3
