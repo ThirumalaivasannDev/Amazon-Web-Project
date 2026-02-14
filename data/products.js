@@ -75,7 +75,7 @@ class Clothing extends Product
   }
 }
 
-
+console.log(new Date());
 
 
 export const products = [  //Exporting products varaible then outside file can able to access 
@@ -750,5 +750,22 @@ export const products = [  //Exporting products varaible then outside file can a
   
 });
 
+
+
+
+
+
+/*
+
+function logThis()
+{
+  console.log(this);
+}
+
+logThis.call('hello');
+
+
+
+*/
 
 
