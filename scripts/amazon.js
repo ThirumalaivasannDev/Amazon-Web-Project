@@ -1,8 +1,14 @@
 import {cart,addItemOrIncreaseQuantity,updateQuantity} from '../data/cart.js';   /*Import cart,product then only we can able to use this variables inside our file */
-import {products as product} from '../data/products.js';
+import {products as product,loadProduct} from '../data/products.js';
 import {priceFormatting} from '../scripts/utils/money.js';
 
-let productHTML='';
+loadProduct(renderProductGrid);
+
+export function renderProductGrid()
+{
+
+
+  let productHTML='';
 
 product.forEach( (product)=>
 {
@@ -50,3 +56,5 @@ document.querySelectorAll('.js-add-cart-button').forEach((button)=>
 
  
 
+
+}

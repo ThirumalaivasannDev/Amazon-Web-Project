@@ -1,4 +1,5 @@
 import { priceFormatting } from "../scripts/utils/money.js";
+import { renderProductGrid } from "../scripts/amazon.js";
 //Function for finding the matched product
 
 export function getProduct(productID)
@@ -71,13 +72,13 @@ class Clothing extends Product
     //super.extractHTML();--->Calling Parent Method
     return `
       <a href="${this.sizeChartLink}" target="_blank">Size Chart</a>
-    `
+    `;
   }
 }
 
-console.log(new Date());
 
 
+/*
 export const products = [  //Exporting products varaible then outside file can able to access 
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -750,22 +751,45 @@ export const products = [  //Exporting products varaible then outside file can a
   
 });
 
-
-
-
-
-
-/*
-
-function logThis()
-{
-  console.log(this);
-}
-
-logThis.call('hello');
-
-
-
 */
 
+
+
+
+
+
+
+//Loading the product data from the backend
+
+export let products=[];
+
+export function loadProduct(renderProductGrid)
+{
+  const xhr=new XMLHttpRequest();
+
+
+  xhr.addEventListener('load',()=>
+  {
+    products=JSON.parse(xhr.response).map((product)=>
+{
+  
+  if(product.type==='clothing')
+  {
+    return new Clothing(product);
+  }
+  else
+  {
+    return new Product(product);
+  }
+  
+});
+  renderProductGrid();
+  console.log(products);
+  });
+
+
+  xhr.open('GET','https://supersimplebackend.dev/products');
+  xhr.send();
+  
+}
 
