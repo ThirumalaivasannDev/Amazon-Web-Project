@@ -772,6 +772,7 @@ export function loadProduct(fun)
 });
   
   console.log(products);
+  console.log('load product');
   fun();
   });
   
