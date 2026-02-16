@@ -1,4 +1,4 @@
-import { products,getProduct } from "../../data/products.js";
+import { getProduct } from "../../data/products.js";
 import { cart, remove,updateDeliveryOptionID } from "../../data/cart.js";
 import { priceFormatting } from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
@@ -17,6 +17,7 @@ cart.forEach((cartItem) => {
 
   let id = cartItem.productId;
   let matchedProduct = getProduct(id);
+  
 
   const deliveryOptionId=cartItem.deliveryOptionID;
   
@@ -142,4 +143,3 @@ function deliveryOptionsHTML(matchedProductId,cartItemDeliveryOptionID) {
 
 }
 
-renderOrderSummary();

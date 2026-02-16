@@ -1,20 +1,6 @@
 import { priceFormatting } from "../scripts/utils/money.js";
-import { renderProductGrid } from "../scripts/amazon.js";
 //Function for finding the matched product
 
-export function getProduct(productID)
-{
-  let matchedProduct='';
-    products.forEach((product)=>
-    {
-      if(productID===product.id)
-      {
-        matchedProduct=product;
-      }
-    });
-
-    return matchedProduct;
-}
 
 
 class Product
@@ -74,6 +60,7 @@ class Clothing extends Product
       <a href="${this.sizeChartLink}" target="_blank">Size Chart</a>
     `;
   }
+  
 }
 
 
@@ -763,7 +750,7 @@ export const products = [  //Exporting products varaible then outside file can a
 
 export let products=[];
 
-export function loadProduct(renderProductGrid)
+export function loadProduct(fun)
 {
   const xhr=new XMLHttpRequest();
 
@@ -783,13 +770,27 @@ export function loadProduct(renderProductGrid)
   }
   
 });
-  renderProductGrid();
+  
   console.log(products);
+  fun();
   });
-
+  
 
   xhr.open('GET','https://supersimplebackend.dev/products');
   xhr.send();
   
 }
 
+export function getProduct(productID)
+{
+  let matchedProduct='';
+    products.forEach((product)=>
+    {
+      if(productID===product.id)
+      {
+        matchedProduct=product;
+      }
+    });
+
+    return matchedProduct;
+}
