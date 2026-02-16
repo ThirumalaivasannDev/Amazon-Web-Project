@@ -740,7 +740,31 @@ export const products = [  //Exporting products varaible then outside file can a
 
 */
 
-
+export function loadProductFetch()
+{
+  const promise=fetch('https://supersimplebackend.dev/products').then((response)=>
+  {
+    return response.json();
+  }).then((productsData)=>
+  {
+    products=productsData.map((product)=>
+{
+  
+  if(product.type==='clothing')
+  {
+    return new Clothing(product);
+  }
+  else
+  {
+    return new Product(product);
+  }
+  
+});
+  
+  console.log('load product');
+  });
+  return promise;
+}
 
 
 
@@ -771,7 +795,6 @@ export function loadProduct(fun)
   
 });
   
-  console.log(products);
   console.log('load product');
   fun();
   });

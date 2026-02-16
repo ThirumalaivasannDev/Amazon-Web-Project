@@ -1,25 +1,13 @@
 import { renderOrderSummary } from "./checkout/orderSummary.js";
 import { renderPaymentSummary } from "./checkout/paymentSummary.js";
-import { loadProduct } from "../data/products.js";
+import { loadProduct,loadProductFetch } from "../data/products.js";
 import{loadCart} from "../data/cart.js";
 
 
 //Promise all
 Promise.all([
-new Promise((resolve)=>
-{
-  loadProduct(()=>
-  {
-    resolve('This parameter value can be passed an an argument to then inner function');
-  });
-  
-}),
-new Promise((resolve)=>
-  {
-    loadCart(()=>{
-      resolve('Hey Everyone');
-    })
-  })
+loadProductFetch()
+
 ]).then((values)=>
 {
   console.log(typeof values);
@@ -56,8 +44,8 @@ new Promise((resolve)=>
   renderOrderSummary();
   renderPaymentSummary();
 });
-*/
 
+*/
 
 
 //nested callbacks
