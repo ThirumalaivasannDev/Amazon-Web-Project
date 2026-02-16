@@ -3,6 +3,29 @@ import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 import { loadProduct,loadProductFetch } from "../data/products.js";
 import{loadCart} from "../data/cart.js";
 
+async function loadPage()  //It can return a promise
+{
+  
+  await loadProductFetch();
+
+  await new Promise((resolve)=>
+  {
+    loadCart(()=>
+    {
+      resolve();
+    });
+  });
+
+  renderOrderSummary();
+  renderPaymentSummary();
+
+}
+
+loadPage();
+
+
+
+/*
 
 //Promise all
 Promise.all([
@@ -10,8 +33,7 @@ loadProductFetch()
 
 ]).then((values)=>
 {
-  console.log(typeof values);
-  console.log(values);
+ 
   renderOrderSummary();
   renderPaymentSummary();
 });
